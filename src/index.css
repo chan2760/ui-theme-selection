@@ -1,13 +1,28 @@
-.light {
-  background: white;
-  color: black;
-  min-height: 100vh;
-  padding: 20px;
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.dark {
-  background: #121212;
+/* BODY THEMES */
+body.light {
+  background-color: white;
+  color: black;
+}
+
+body.dark {
+  background-color: black;
   color: white;
-  min-height: 100vh;
-  padding: 20px;
+}
+
+/* UI */
+button {
+  margin: 6px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+div {
+  padding: 10px;
 }

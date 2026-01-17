@@ -1,6 +1,6 @@
 import { useSettings } from "../context/SettingsContext";
 
-const Header = () => {
+export default function Header() {
   const { language } = useSettings();
 
   return (
@@ -8,6 +8,4 @@ const Header = () => {
       {language === "en" ? "Welcome" : "ยินดีต้อนรับ"}
     </h1>
   );
-};
-
-export default Header;
+}

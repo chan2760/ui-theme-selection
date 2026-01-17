@@ -2,11 +2,6 @@ import { createContext, useContext, useEffect, useState } from "react";
 
 const SettingsContext = createContext();
 
-const DEFAULT_SETTINGS = {
-  theme: "light",
-  language: "en",
-};
-
 export const SettingsProvider = ({ children }) => {
   const [theme, setTheme] = useState("light");
   const [language, setLanguage] = useState("en");
@@ -21,7 +16,7 @@ export const SettingsProvider = ({ children }) => {
     }
   }, []);
 
-  // 🔹 Save to localStorage (on change)
+ 
   useEffect(() => {
     localStorage.setItem(
       "app-settings",
@@ -29,10 +24,10 @@ export const SettingsProvider = ({ children }) => {
     );
   }, [theme, language]);
 
-  const resetSettings = () => {
-    setTheme(DEFAULT_SETTINGS.theme);
-    setLanguage(DEFAULT_SETTINGS.language);
-  };
+  
+  useEffect(() => {
+    document.body.className = theme;
+  }, [theme]);
 
   return (
     <SettingsContext.Provider
@@ -41,7 +36,10 @@ export const SettingsProvider = ({ children }) => {
         language,
         setTheme,
         setLanguage,
-        resetSettings,
+        resetSettings: () => {
+          setTheme("light");
+          setLanguage("en");
+        },
       }}
     >
       {children}

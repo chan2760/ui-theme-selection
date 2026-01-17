@@ -1,11 +1,10 @@
 import { useSettings } from "../context/SettingsContext";
 
-const PreviewCard = () => {
+export default function PreviewCard() {
   const { theme, language } = useSettings();
 
   return (
     <div>
-      <h3>Preview</h3>
       <p>Current Theme: {theme}</p>
       <p>Current Language: {language}</p>
       <p>
@@ -15,6 +14,5 @@ const PreviewCard = () => {
       </p>
     </div>
   );
-};
-
-export default PreviewCard;
+}
+ 
